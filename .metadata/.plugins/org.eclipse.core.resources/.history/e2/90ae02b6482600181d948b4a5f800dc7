@@ -18,7 +18,7 @@ public class Deck {
 	 * Cards are dealt from the top (highest index) down.
 	 * The next card to be dealt is at size - 1.
 	 */
-	private ArrayList<Card> cards;
+	private List<Card> cards;
 	private int size;
 
 
@@ -33,14 +33,12 @@ public class Deck {
 	
 
 
-	public Deck(ArrayList<Card> ranks, ArrayList<Card> suits, ArrayList<Card> values) {
+	public Deck(ArrayList<String> ranks, ArrayList<String> suits, ArrayList<Integer> values) {
 		ArrayList<Card>arraydeck;
-		arraydeck = new ArrayList<Card>();
 		for (int i = 0; i< ranks.size(); i++){
 			for (int j =0; j<suits.size() ; j++){
-				arraydeck.add(ranks.get(i));
-				arraydeck.add(suits.get(i));
-				arraydeck.add(suits.get(i));
+				Card deck = new Card(ranks.get(i), suits.get(i), values.get(i));
+				//arraydeck = setnewarray(deck,arraydeck);
 			}
 		}
 		cards = arraydeck;
@@ -49,12 +47,10 @@ public class Deck {
 	}
 	public ArrayList<Card> setnewarray(ArrayList<Card> newcard, ArrayList<Card> oldarray){
 		ArrayList<Card> newcards; 
-		newcards = new ArrayList<Card>();
 		for (int i = 0; i<oldarray.size(); i++){
-			newcards.add(oldarray.get(i));
+			//newcards.get(i) = oldarray.get(i);
 		}
-
-		//newcards[oldarray.size()] = newcard;
+		newcards[oldarray.size()] = newcard;
 		return newcards;
 	}
 
@@ -88,7 +84,7 @@ public class Deck {
 			int start = 0;
 			int randPost = (int)(Math.random()* check) + start;
 			Card temporary = cards.get(k);
-			cards.set(randPost,temporary);
+			cards[randPost] = temporary;
 			size = cards.size();
 		}
 			
@@ -104,7 +100,7 @@ public class Deck {
 			return null;
 		}
 		size--;
-		Card returned= cards.get(size-1);
+		Card returned= cards.size();
 		return returned;
 
 	}
