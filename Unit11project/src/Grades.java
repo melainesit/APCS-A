@@ -27,13 +27,12 @@ public class Grades
 	{
 		Scanner chop = new Scanner(gradeList);
 		int number = chop.nextInt();
-		chop.next();
-		int count = 0;
-		Double[] real = new Double[number];
-		while (chop.hasNextDouble()){
-			double more = chop.nextDouble();
-			setGrade(count,more);
-			count++;
+		grades = new double[number];
+		String glist = "";
+		glist = gradeList.substring(gradeList.indexOf("-" + 1, gradeList.length()));
+		Scanner real = new Scanner(glist);
+		for (int i=0;i<grades.length;i++){
+			grades[i] = real.nextDouble();
 		}
 	}
 	
@@ -42,8 +41,6 @@ public class Grades
 		grade = grades[spot];
 
 		
-
-
 	}
 	
 	public double getSum()
