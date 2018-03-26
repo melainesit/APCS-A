@@ -27,7 +27,7 @@ public class ElevensBoard extends Board {
 	 * The values of the cards for this game to be sent to the deck.
 	 */
 	private static final int[] POINT_VALUES =
-		{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0};
+		{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 
 	/**
 	 * Flag used to control debugging print statements.
@@ -40,8 +40,9 @@ public class ElevensBoard extends Board {
 	 */
 	 public ElevensBoard() {
 	 	super(BOARD_SIZE, RANKS, SUITS, POINT_VALUES);
-	 }
+	 	System.out.println(toString());
 
+	 }
 	/**
 	 * Determines if the selected cards form a valid group for removal.
 	 * In Elevens, the legal groups are (1) a pair of non-face cards
@@ -55,10 +56,11 @@ public class ElevensBoard extends Board {
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 
-		if (containsPairSum11(selectedCards) ||  containsJQK(selectedCards)){
+		if (containsPairSum11(selectedCards) ||  containsJQK(selectedCards) ){
 			return true;
 		}
 		return false;
+		
 	}
 		
 
@@ -99,6 +101,7 @@ public class ElevensBoard extends Board {
 		}
 
 		return false;
+		
 	}
 
 	/**
@@ -116,7 +119,7 @@ public class ElevensBoard extends Board {
 			Card card = cardAt(selectedCards.get(i));
 			sum = (sum + card.pointValue());
 		}
-		if (sum==11){
+		if (sum==15){
 			return true;
 		}
 		return false;
@@ -142,9 +145,20 @@ public class ElevensBoard extends Board {
 			else if (card.rank() == "king"){
 				third = true;}
 			if (first && second && third == true){
+				return true;}
+			if (third==true){
 				return true;
 			}
-		}
+			}
+			
+		
 		return false;
 	}
+	
+	public String toString(){
+		String me= "Melaine Sit" + "\n" + "3/23/18" + "\n" + "35";
+		return me;
+	}
+
 }
+
