@@ -1,0 +1,21 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+import java.awt.Color;
+public interface Locatable
+{
+
+    public void setX( int x );
+    public void setY( int y );
+    public void setHeight(int height1);
+    public void setwidth(int width1);
+    public void setColor(Color col);
+
+    public int getX();
+    public int getY();
+    public int getWidth();
+    public int getHeight();
+    public Color getColor();
+}
